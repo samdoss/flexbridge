@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include>
+	<Binary Id="InjectedActionsDll"
+		SourceFile="../Resources/InjectedInstallerActions.dll" />
+
+	<CustomAction Id="FixFixUtf8Path"
+		Execute="commit"
+		BinaryKey="InjectedActionsDll"
+		DllEntry="FixFixUtfPath"/>
+
+	<CustomAction Id="CreateL10nFolder"
+		Execute="commit"
+		BinaryKey="InjectedActionsDll"
+		DllEntry="FixFixUtfPath"/>
+
+	<CustomAction Id="YourAppBefore" Property="NULL" Value=""/> <!-- Required by the GI framework, but nothing for FB to do -->
+
 	<Property Id="REGISTRYKEY" Value="SIL\$(var.ApplicationName)\9"/> <!-- yes, this is the FLEx version -->
 	<Property Id="APPFOLDERREGSZNAME" Value="InstallationDir"/>
 	<SetProperty Id="OVRAPPFOLDER" Value="[ProgramFilesFolder]\SIL\$(var.SafeApplicationName)$(var.MajorVersion)\" Before="AppSearch"/>
