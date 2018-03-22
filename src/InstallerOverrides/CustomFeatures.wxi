@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include>
+	<Feature Id='NoShortcuts' Title='Shortcuts' Description='Creates shortcuts on the desktop and in the Start menu.' Level='0' ConfigurableDirectory='APPFOLDER' AllowAdvertise="no" InstallDefault="source" Absent='allow'>
+		<ComponentRef Id='ApplicationShortcutDesktop'/>
+		<ComponentRef Id='ApplicationShortcutMenu' />
+	</Feature>
+
 	<!-- Install Chorus and Mercurial -->
 	<Feature Id='Chorus' Title='Chorus' Description='Necessary to Send and Receive.' Level='1' ConfigurableDirectory='APPFOLDER' AllowAdvertise="no" InstallDefault="source" Absent='disallow' TypicalDefault="install">
 		<MergeRef Id="ChorusMergeModule"/>
